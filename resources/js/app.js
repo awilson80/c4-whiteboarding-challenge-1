@@ -1,5 +1,5 @@
 // 1. GenBuzz Function
-        
+
 //    * Write a function that prints (to the console) numbers from a `lowerLimit` to an `upperLimit`.
 //    * For numbers divisible by 3, print “Gen”
 //    * For numbers divisible by 5, print “Buzz”
@@ -13,16 +13,54 @@
 // //Write your code below this line:
 
 
+/*  
+ Function with parameters [Lower limit number] and [upper limit number] and prints them to the console
+ Function takes in two numbers as parameters, the first one must be smaller than the second
+*/
+
+const genBuzz = (lowerLimit, upperLimit) => {
+
+    if (typeof lowerLimit !== 'number') {
+
+        console.log(`You entered ${lowerLimit}. Please enter a number.`);
+
+    } else if (typeof upperLimit !== 'number') {
+
+        console.log(`You entered ${upperLimit}. Please enter a number.`); 
+
+    } else if (lowerLimit >= upperLimit) {
+
+        console.log(`${lowerLimit} is larger than ${upperLimit}. Please enter numbers in this order: (low, high)`); 
+
+    } else {
+
+        for (i = lowerLimit; i <= upperLimit; i++) {
+
+            if (i % 3 == 0 && i % 5 == 0) {
+
+                console.log('GenBuzz');
+
+            } else if (i % 3 == 0) {
+
+                console.log('Gen');
+
+            } else if (i % 5 == 0) {
+
+                console.log('Buzz');
+                
+            } else {
+                
+                console.log(i);
+            }
+        };
+
+    };
+};
+
+genBuzz(3, 15); 
 
 
 // 2. Leap Year
-
-// // A leap year is a year containing one additional day added to keep the calendar year 
-// synchronized with the astronomical or seasonal year. Because seasons and astronomical events do not 
-// repeat in a whole number of days, calendars that have the same number of days in 
-// each year drift over time with respect to the event that the year is supposed to track. 
-// By inserting an additional day or month into the year, the drift can be corrected. 
-// A year that is not a leap year is called a common year.
 
 // Every year that is exactly divisible by four is a leap year, except for years that are exactly divisible by 100, 
 // but these centurial years are leap years if they are exactly divisible by 400. 
@@ -35,9 +73,25 @@
 
 //Write your code below this line:
 
+isLeapYear = (year) => {
 
+if (typeof year !== 'number') {
 
+    console.log('Please enter a number');
 
+} else if (year % 400 == 0) {
+
+    console.log(`${year} is a leap year.`);
+
+} else if (year % 4 == 0 && year % 100 !== 0) {
+
+    console.log(`${year} is a leap year.`)
+
+} else return `${year} is a common year.`;
+
+};
+
+isLeapYear(1984);
 
 // 3. Perfect Square
 
@@ -53,3 +107,26 @@
 // You may not use the built-in Math.sqrt method
 
 //Write your code below this line:
+
+
+
+const perfectSquare = (number) => {
+
+    for (i = 0; i <= number; i++) {
+
+        const perfectSquareDefinition = (i * i);
+
+        if (perfectSquareDefinition == number) {
+
+            return true;
+
+        } else if (perfectSquareDefinition > number) {
+
+            return false;
+
+        } 
+    }
+
+};
+
+console.log(perfectSquare(144));
